@@ -112,13 +112,12 @@ app.post("/api/users/:_id/exercises", async (req, res) => {
       const exercise = await exerciseObj.save()
 
       res.json({
-        user_id: user._id,
-        username: user.username,
-        description: exercise.description,
-        duration: exercise.duration,
-        date: new Date(exercise.date).toDateString()
-      })
-
+  _id: user._id,
+  username: user.username,
+  date: new Date(exercise.date).toDateString(),
+  duration: exercise.duration,
+  description: exercise.description
+})
     } catch (error) {
       console.log(error)
       res.send("Error occured while Saving")
